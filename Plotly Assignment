@@ -1,0 +1,78 @@
+
+Q1. Load the "titanic" dataset using the load_dataset function of seaborn. Use Plotly express to plot a scatter plot for age and fare columns in the titanic dataset.
+
+
+import seaborn as sns
+import plotly.express as px
+
+# Load the Titanic dataset using seaborn
+titanic_data = sns.load_dataset("titanic")
+
+# Create a scatter plot using Plotly Express
+fig = px.scatter(titanic_data, x="age", y="fare", title="Scatter Plot of Age vs Fare")
+fig.show()
+
+     
+Q2. Using the tips dataset in the Plotly library, plot a box plot using Plotly express.
+
+
+import plotly.express as px
+
+# Load the "tips" dataset from Plotly
+tips_data = px.data.tips
+
+# Create a box plot using Plotly Express
+fig = px.box(tips_data, x="day", y="total_bill", title="Box Plot of Total Bill by Day")
+fig.show()
+
+     
+Q3. Using the tips dataset in the Plotly library, Plot a histogram for x= "sex" and y="total_bill" column in the tips dataset. Also, use the "smoker" column with the pattern_shape parameter and the "day" column with the color parameter.
+
+
+import plotly.express as px
+
+# Load the "tips" dataset from Plotly
+tips_data = px.data.tips
+
+# Create a histogram with pattern_shape and color parameters
+fig = px.histogram(tips_data, x="sex", y="total_bill", pattern_shape="smoker", color="day", title="Histogram of Total Bill by Sex")
+fig.show()
+
+     
+Q4. Using the iris dataset in the Plotly library, Plot a scatter matrix plot, using the "species" column for the color parameter. Note: Use "sepal_length", "sepal_width", "petal_length", "petal_width" columns only with the dimensions parameter.
+
+
+import plotly.express as px
+
+# Load the "iris" dataset from Plotly
+iris_data = px.data.iris
+
+# Create a scatter matrix plot
+fig = px.scatter_matrix(
+    iris_data,
+    dimensions=["sepal_length", "sepal_width", "petal_length", "petal_width"],
+    color="species",
+    title="Scatter Matrix Plot of Iris Dataset"
+)
+fig.show()
+
+     
+Q5. What is Distplot? Using Plotly express, plot a distplot.
+
+A "distplot" is a distribution plot that combines a histogram and a kernel density estimate (KDE) in a single visualization. It's a way to represent the univariate distribution of a dataset, showing both the distribution of individual data points (histogram) and a smoothed estimate of the probability density function (KDE).
+
+You can create a distplot using Plotly Express to visualize the distribution of a dataset. Here's an example of how to create a distplot:
+
+
+import plotly.express as px
+
+# Sample data for demonstration
+data = [2.5, 3.0, 3.5, 4.0, 4.0, 4.5, 4.5, 5.0, 5.0, 5.5, 6.0, 6.5, 7.0]
+
+# Create a distplot
+fig = px.histogram(data, x=data, nbins=5, title="Distplot Example")
+fig.update_traces(marker=dict(line=dict(width=2, color='DarkSlateGrey'))
+fig.update_layout(bargap=0.1)
+fig.show()
+
+     
